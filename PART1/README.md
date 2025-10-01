@@ -56,3 +56,17 @@ SoCs are designed for **compactness, energy efficiency, and high performance**, 
     -   Security modules (encryption engines, secure boot).
         
     -   Application-specific accelerators (AI, ML, camera ISP).
+  
+## 🔹 Why BabySoC is a Simplified Model for Learning SoC Concepts
+
+Designing a full-fledged industrial SoC is highly complex, involving millions (or even billions) of transistors, multiple cores, accelerators, and high-speed peripherals. For learners, this level of complexity is overwhelming.
+
+**BabySoC** serves as a **scaled-down, educational model** of a real SoC. It is simplified in terms of:
+
+-   **Fewer components:** Includes only essential blocks like a RISC-V core (RVMYTH), a Phase-Locked Loop (PLL), and a Digital-to-Analog Converter (DAC).
+    
+-   **Reduced design complexity:** Easier to understand interconnections and data flow.
+    
+-   **Focused learning:** Allows students to concentrate on fundamental SoC principles rather than advanced optimizations.
+    
+-   **Open-source accessibility:** Built on open technologies (Sky130 PDK, RVMYTH), making it cost-effective and transparent for learning.
