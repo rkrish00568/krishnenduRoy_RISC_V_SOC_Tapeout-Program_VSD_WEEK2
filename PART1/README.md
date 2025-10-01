@@ -70,3 +70,11 @@ Designing a full-fledged industrial SoC is highly complex, involving millions (o
 -   **Focused learning:** Allows students to concentrate on fundamental SoC principles rather than advanced optimizations.
     
 -   **Open-source accessibility:** Built on open technologies (Sky130 PDK, RVMYTH), making it cost-effective and transparent for learning.
+
+## 🔹 How BabySoC Fits into This Learning Journey
+
+-   **Step 1 – Fundamentals:** BabySoC introduces the building blocks of an SoC (CPU, PLL, DAC) in a manageable scope.
+    
+-   **Step 2 – Functional Modelling:** Students model BabySoC in Verilog, simulate behavior using tools like **Icarus Verilog** and visualize waveforms in **GTKWave**.
+    
+-   **Step 3 – RTL & Physical Design (Advanced):** Once functional behaviour is verified, BabySoC can be extended into RTL, synthesized with Sky130 PDK, and eventually fabricated.
