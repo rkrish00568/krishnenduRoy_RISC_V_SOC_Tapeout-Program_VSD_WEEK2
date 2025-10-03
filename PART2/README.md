@@ -224,3 +224,5 @@ this shows the reset operation when the reset is high the output is zero and in 
 - Simulation shows proper **clock generation** synchronized with the reference input.
 
 ![output](images/output.png)
+this shows the output of the DAC and the processor the output becomes 1 if the DAC output is greater than 0.5 and it becomes 0 if the DAC output is less than 0.5
+- The DAC output depends on reference voltages `VREFH` and `VREFL`. 
