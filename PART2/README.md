@@ -235,3 +235,5 @@ this shows the output of the DAC and the processor the output becomes 0 if the D
 ![test](images/y2.png)
 ![test](images/y3.png)
 ![test](images/dot.png)
+
+# Post Synthesis Simulation
