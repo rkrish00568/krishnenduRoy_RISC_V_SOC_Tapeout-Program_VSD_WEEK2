@@ -221,4 +221,6 @@ this shows the reset operation when the reset is high the output is zero and in 
 - `REF` provides a reference signal to the PLL.  
 - The PLL divides the reference period by 8 to produce the final **stable clock**.  
 - When `ENb_VCO = 1`, the VCO toggles `CLK` at the calculated frequency.  
-- Simulation shows proper **clock generation** synchronized with the reference input.  
+- Simulation shows proper **clock generation** synchronized with the reference input.
+
+![output](images/output.png)
