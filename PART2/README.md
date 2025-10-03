@@ -198,3 +198,13 @@ endmodule
 
          
    </details>
+
+
+   # Pre-Synthesis Simulation
+
+## Overview
+Pre-synthesis simulation is performed to verify the **functional correctness** of the RTL design before synthesis.  
+At this stage, we test the Verilog modules (`vsdbabysoc`, `avsdpll`, `avsddac`, `rvmyth`) together using a **testbench**.  
+The goal is to check **reset behavior, clock generation, data flow, and output response**.
+
+---
