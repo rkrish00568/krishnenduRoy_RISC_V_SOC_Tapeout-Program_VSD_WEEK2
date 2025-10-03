@@ -208,3 +208,6 @@ At this stage, we test the Verilog modules (`vsdbabysoc`, `avsdpll`, `avsddac`, 
 The goal is to check **reset behavior, clock generation, data flow, and output response**.
 
 ---
+
+
+![test](images/test.png)
