@@ -215,3 +215,4 @@ The goal is to check **reset behavior, clock generation, data flow, and output r
 this shows the signals in the vsdbabySOC testbench. we can see the input signals and the output signals
 
 ![reset](images/reset.png)
+this shows the reset operation when the reset is high the output is zero and in the initial rest condition
