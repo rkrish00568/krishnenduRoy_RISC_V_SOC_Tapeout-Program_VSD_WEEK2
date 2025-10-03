@@ -216,3 +216,4 @@ this shows the signals in the vsdbabySOC testbench. we can see the input signals
 
 ![reset](images/reset.png)
 this shows the reset operation when the reset is high the output is zero and in the initial rest condition
+![pll](images/pll.png)
