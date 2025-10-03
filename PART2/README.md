@@ -213,3 +213,5 @@ The goal is to check **reset behavior, clock generation, data flow, and output r
 ![test](images/test.png)
 
 this shows the signals in the vsdbabySOC testbench. we can see the input signals and the output signals
+
+![reset](images/reset.png)
