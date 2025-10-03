@@ -231,6 +231,36 @@ this shows the output of the DAC and the processor the output becomes 1 if the D
 this shows the output of the DAC and the processor the output becomes 0 if the DAC output is less than 0.5
 
 # Synthesis using YOSYS
+```
+# Load Liberty (standard cells)
+read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Load custom block Liberty files
+read_liberty -lib src/lib/avsddac.lib
+read_liberty -lib src/lib/avsdpll.lib
+
+# Load Verilog RTL sources
+read_verilog -sv -I src/include/ -I src/module/ \
+    src/module/vsdbabysoc.v \
+    src/module/clk_gate.v \
+    src/module/rvmyth.v
+
+# Set top module
+hierarchy -check -top vsdbabysoc
+
+# Map to Sky130 standard cells
+synth -top vsdbabysoc
+dfflibmap -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Cleanup
+clean
+
+# Write gate-level netlist
+write_verilog output/synthesized/vsdbabysoc.synth.v
+
+```
+used the above code to synthesisize the verilog code
 ![test](images/y1.png)
 ![test](images/y2.png)
 ![test](images/y3.png)
