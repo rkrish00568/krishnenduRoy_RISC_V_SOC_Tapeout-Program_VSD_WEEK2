@@ -229,3 +229,9 @@ this shows the output of the DAC and the processor the output becomes 1 if the D
 
 ![output](images/out.png)
 this shows the output of the DAC and the processor the output becomes 0 if the DAC output is less than 0.5
+
+# Synthesis using YOSYS
+![test](images/y1.png)
+![test](images/y2.png)
+![test](images/y3.png)
+![test](images/dot.png)
