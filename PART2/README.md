@@ -201,7 +201,52 @@ endmodule
 
 
    # Pre-Synthesis Simulation
+##Clone the project
+```
+git clone https://github.com/manili/VSDBabySoC.git
+```
+## TLV to Verilog Conversion for RVMYTH
+Initially, you will see only the rvmyth.tlv file inside src/module/, since the RVMYTH core is written in TL-Verilog.
 
+To convert it into a .v file for simulation, follow the steps below:
+```
+# Step 1: Install python3-venv (if not already installed)
+sudo apt update
+sudo apt install python3-venv python3-pip
+
+# Step 2: Create and activate a virtual environment
+cd ~/VLSI/VSDBabySoC/
+python3 -m venv sp_env
+source sp_env/bin/activate
+
+# Step 3: Install SandPiper-SaaS inside the virtual environment
+pip install pyyaml click sandpiper-saas
+
+# Step 4: Convert rvmyth.tlv to Verilog
+sandpiper-saas -i ./src/module/*.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
+Run the following command to perform a pre-synthesis simulation:
+```
+cd ~/VLSI/VSDBabySoC/
+
+mkdir -p output/pre_synth_sim
+
+iverilog -o ~/VLSI/VSDBabySoC/output/pre_synth_sim/pre_synth_sim.out -DPRE_SYNTH_SIM -I ~/VLSI/VSDBabySoC/src/include -I ~/VLSI/VSDBabySoC/src/module ~/VLSI/VSDBabySoC/src/module/testbench.v
+```
+Then run:
+```
+cd output/pre_synth_sim
+
+./pre_synth_sim.out
+```
+After running the simulation, open the VCD file in GTKWave:
+```
+
+cd ~/VLSI/VSDBabySoC/
+
+gtkwave output/pre_synth_sim/pre_synth_sim.vcd
+
+```
 ## Overview
 Pre-synthesis simulation is performed to verify the **functional correctness** of the RTL design before synthesis.  
 At this stage, we test the Verilog modules (`vsdbabysoc`, `avsdpll`, `avsddac`, `rvmyth`) together using a **testbench**.  
