@@ -266,6 +266,17 @@ iverilog -o output/post_synth_sim/post_synth_sim.out \
   src/module/avsdpll.v
 
 ```
+then we run the simulation
+```
+cd output/post_synth_sim
+./post_synth_sim.out
+
+```
+View waveforms in GTKWave
+```
+gtkwave dump.vcd
+
+```
 the output waveform of post synthesis simulation
 ![test](images/1.png)
 ![test](images/2.png)
