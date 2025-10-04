@@ -232,38 +232,42 @@ this shows the output of the DAC and the processor the output becomes 0 if the D
 
 # Synthesis using YOSYS
 ```
-# Load Liberty (standard cells)
-read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -lib /home/DINESH/Desktop/Open_Source_EDA_Tool/yosys/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog -sv -I src/include/ -I src/module/ src/module/vsdbabysoc.v src/module/clk_gate.v src/module/rvmyth.v
 
-# Load custom block Liberty files
 read_liberty -lib src/lib/avsddac.lib
+
 read_liberty -lib src/lib/avsdpll.lib
 
-# Load Verilog RTL sources
-read_verilog -sv -I src/include/ -I src/module/ \
-    src/module/vsdbabysoc.v \
-    src/module/clk_gate.v \
-    src/module/rvmyth.v
+read_liberty -lib src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Set top module
-hierarchy -check -top vsdbabysoc
-
-# Map to Sky130 standard cells
 synth -top vsdbabysoc
-dfflibmap -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+write_verilog vsdbabysoc.synth.v
+
 abc -liberty src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Cleanup
-clean
-
-# Write gate-level netlist
-write_verilog output/synthesized/vsdbabysoc.synth.v
+show
 
 ```
-used the above code to synthesisize the verilog code
+used the above code to synthesize the verilog code
 ![test](images/y1.png)
 ![test](images/y2.png)
 ![test](images/y3.png)
 ![test](images/dot.png)
 
 # Post Synthesis Simulation
+we used iverilog to compile the synthesized code.
+```
+iverilog -o output/post_synth_sim/post_synth_sim.out \
+  src/module/testbench.v \
+  vsdbabysoc.synth.v \
+  src/module/avsddac.v \
+  src/module/avsdpll.v
+
+```
+the output waveform of post synthesis simulation
+![test](images/1.png)
+![test](images/2.png)
+![test](images/3.png)
+![test](images/4.png)
